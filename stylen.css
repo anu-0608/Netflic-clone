@@ -1,0 +1,314 @@
+
+/* 1. Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #141414;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 2. Navigation bar */
+.navbar {
+    height: 72px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    background: #101010;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #252525;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.profile {
+    background: #e50914;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 3. Hero banner */
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 50px 4%;
+    background:
+        linear-gradient(90deg, #141414 0%, rgba(20,20,20,0.85) 30%,
+        rgba(20,20,20,0.2) 75%),
+        linear-gradient(0deg, #141414 0%, transparent 35%),
+        url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 520px;
+}
+
+.subtitle {
+    color: #e50914;
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 0.95;
+    font-weight: 900;
+    margin-bottom: 22px;
+    text-shadow: 2px 2px 8px black;
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.match {
+    color: #46d369;
+    font-weight: bold;
+}
+
+.rating {
+    border: 1px solid #aaa;
+    padding: 3px 6px;
+}
+
+.description {
+    max-width: 450px;
+    line-height: 1.6;
+    color: #eee;
+    margin-bottom: 22px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 23px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.play {
+    background: white;
+    color: black;
+}
+
+.play:hover {
+    background: #ddd;
+}
+
+.more {
+    background: rgba(109, 109, 110, 0.75);
+    color: white;
+}
+
+.more:hover {
+    background: rgba(109, 109, 110, 0.5);
+}
+
+/* 4. Movie sections */
+.movie-section {
+    padding: 12px 4% 28px;
+    scroll-margin-top: 85px;
+}
+
+.movie-section h2 {
+    font-size: 23px;
+    margin-bottom: 16px;
+}
+
+.movie-row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.movie-card {
+    min-width: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.movie-card img {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: filter 0.3s;
+}
+
+.movie-card h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 9px;
+    color: #ddd;
+}
+
+.movie-card:hover {
+    transform: scale(1.06);
+    z-index: 2;
+}
+
+.movie-card:hover img {
+    filter: brightness(1.15);
+}
+
+/* 5. Footer */
+footer {
+    padding: 30px 4%;
+    margin-top: 20px;
+    color: #888;
+    font-size: 13px;
+    line-height: 2;
+    border-top: 1px solid #292929;
+}
+
+/* 6. Responsive design for smaller screens */
+@media (max-width: 850px) {
+    .navbar {
+        gap: 20px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .movie-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero {
+        min-height: 440px;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar {
+        height: auto;
+        min-height: 65px;
+        padding: 15px 4%;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding: 5px 0;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    .nav-right {
+        gap: 12px;
+        font-size: 18px;
+    }
+
+    .hero {
+        min-height: 420px;
+        padding-top: 35px;
+        padding-bottom: 35px;
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .movie-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .movie-card img {
+        height: 125px;
+    }
+
+    .movie-section h2 {
+        font-size: 20px;
+    }
+}
